@@ -26,6 +26,17 @@ jobs:
       run: dotnet test "${{ env.WORKING_DIRECTORY }}" --no-build
     - name: Publish
       run: dotnet publish "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-build --output "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}"
+   
+    - name: Deploy Entity Framework Core (EF Core) migrations from a DLL
+      uses: benday-inc/deploy-ef-core-migration@v1.1
+      with:
+        path_to_directory: ${{ github.workspace }}/${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+        migrations_dll: EntityModel.dll
+        migrations_namespace: EntityModel
+        startup_dll: WebApplication1.dll
+        dbcontext_class_name: WeatherContext
+
+      
     - name: Publish Artifacts
       uses: actions/upload-artifact@v1.0.0
       with:
