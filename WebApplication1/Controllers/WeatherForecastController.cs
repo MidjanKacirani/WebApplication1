@@ -9,9 +9,9 @@ namespace WebApplication1.Controllers
     {
 
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly WeatherContext db;
+        private readonly IWeatherContext db;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, WeatherContext db)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IWeatherContext db)
         {
             _logger = logger;
             this.db = db;

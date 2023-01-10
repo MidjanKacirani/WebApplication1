@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EntityModel
 {
-    public class WeatherContext : DbContext
+    public class WeatherContext : DbContext, IWeatherContext
     {
         public DbSet<WeatherForecastEntity> WeatherForecast { get; set;}
         public DbSet<WeatherSummary> WeatherSummary { get; set; }
