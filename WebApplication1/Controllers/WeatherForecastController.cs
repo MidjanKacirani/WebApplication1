@@ -31,6 +31,12 @@ namespace WebApplication1.Controllers
             return query.ToList();
         }
 
+        [HttpGet("/LogIn/{username}/{password}")]
+        public bool LogIn(string username, string password)
+        {
+            return db.Users.Any(x => x.Username == username && x.Password == password);
+        }
+
         [Authorize]
         [HttpPost]
         public ActionResult Post(WeatherForecast input)
