@@ -1,4 +1,5 @@
 using EntityModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication1.Controllers
@@ -30,7 +31,7 @@ namespace WebApplication1.Controllers
             return query.ToList();
         }
 
-
+        [Authorize]
         [HttpPost]
         public ActionResult Post(WeatherForecast input)
         {

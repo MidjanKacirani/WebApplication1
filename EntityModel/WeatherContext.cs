@@ -11,6 +11,7 @@ namespace EntityModel
     {
         public DbSet<WeatherForecastEntity> WeatherForecast { get; set;}
         public DbSet<WeatherSummary> WeatherSummary { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public WeatherContext() { }
 

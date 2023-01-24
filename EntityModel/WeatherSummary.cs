@@ -14,4 +14,6 @@ namespace EntityModel
         public bool IsActive { get; set; }
 
     }
+
+
 }
