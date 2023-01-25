@@ -26,7 +26,7 @@ namespace WebApplication1.Controllers
                 Date = x.Date,
                 Summary = x.WeatherSummary.Name,
                 TemperatureC = x.Temperature
-            });
+            }).OrderByDescending(x => x.Date);
 
             return query.ToList();
         }
